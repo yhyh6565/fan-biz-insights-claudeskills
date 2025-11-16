@@ -31,7 +31,7 @@ export default {
       fontFamily: {
         // Default body font - Modern, clean sans-serif
         sans: [
-          "Manrope",
+          "Work Sans",
           "Pretendard Variable",
           "Pretendard",
           "-apple-system",
@@ -40,9 +40,9 @@ export default {
           "sans-serif",
         ],
         // Editorial serif for elegance
-        serif: ["Playfair Display", "Georgia", "serif"],
-        // Display font for headings - Bold, sophisticated
-        display: ["Playfair Display", "Georgia", "serif"],
+        serif: ["Cormorant Garamond", "Libre Baskerville", "Georgia", "serif"],
+        // Display font for headings - Elegant, editorial
+        display: ["Cormorant Garamond", "Libre Baskerville", "Georgia", "serif"],
         // Korean text optimization
         pretendard: [
           "Pretendard Variable",

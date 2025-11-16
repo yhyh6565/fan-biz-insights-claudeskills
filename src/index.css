@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Work+Sans:wght@300;400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -171,7 +173,7 @@
 
   body {
     @apply bg-background text-foreground antialiased;
-    font-family: 'Manrope', 'Pretendard Variable', 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+    font-family: 'Work Sans', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
     font-weight: 400;
     letter-spacing: -0.01em;
   }
@@ -406,5 +408,96 @@
 
   .shadow-dramatic {
     box-shadow: var(--shadow-xl);
+  }
+
+  /* ========== Magazine-Specific Utilities ========== */
+
+  /* Drop caps for editorial style */
+  .drop-cap::first-letter {
+    float: left;
+    font-size: 4.5rem;
+    line-height: 0.85;
+    padding-right: 0.15em;
+    font-weight: 700;
+    font-family: 'Cormorant Garamond', serif;
+    color: hsl(var(--primary));
+  }
+
+  /* Pull quote styling */
+  .pull-quote {
+    font-size: 1.75rem;
+    line-height: 1.4;
+    font-weight: 600;
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    color: hsl(var(--foreground) / 0.95);
+    border-left: 4px solid hsl(var(--primary));
+    padding-left: 2rem;
+    margin: 3rem 0;
+  }
+
+  /* Magazine grid layouts */
+  .magazine-grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 2rem;
+  }
+
+  /* Asymmetric article card */
+  .asymmetric-card:nth-child(3n+1) {
+    grid-column: span 7;
+  }
+
+  .asymmetric-card:nth-child(3n+2) {
+    grid-column: span 5;
+  }
+
+  .asymmetric-card:nth-child(3n) {
+    grid-column: span 6;
+  }
+
+  @media (max-width: 768px) {
+    .asymmetric-card {
+      grid-column: span 12 !important;
+    }
+  }
+
+  /* Large editorial numbers */
+  .editorial-number {
+    font-size: 8rem;
+    line-height: 0.9;
+    font-weight: 300;
+    font-family: 'Cormorant Garamond', serif;
+    color: hsl(var(--primary) / 0.1);
+  }
+
+  /* Image overlay text */
+  .overlay-text {
+    position: relative;
+    z-index: 10;
+    mix-blend-mode: normal;
+  }
+
+  /* Decorative underline */
+  .decorative-underline {
+    position: relative;
+    display: inline-block;
+  }
+
+  .decorative-underline::after {
+    content: '';
+    position: absolute;
+    bottom: -0.25rem;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, hsl(var(--kpop-500)), hsl(var(--mcu-500)));
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .decorative-underline:hover::after {
+    transform: scaleX(1);
   }
 }

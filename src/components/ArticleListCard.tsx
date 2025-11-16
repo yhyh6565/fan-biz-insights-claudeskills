@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { Badge } from "@/components/ui/badge";
 import { Card } from "@/components/ui/card";
-import { Eye, Heart, Calendar } from "lucide-react";
+import { Eye, Heart } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 /**
@@ -24,17 +24,14 @@ interface ArticleListCardProps {
 }
 
 /**
- * Article List Card Component
+ * Article List Card Component - Editorial Magazine Style
  *
- * A horizontal card layout for displaying article previews in list format.
- *
- * Features:
- * - Horizontal layout with thumbnail and content
- * - Category-specific theming (K-POP pink / MCU blue)
- * - Hover interactions (shadow, scale, border color)
- * - Author information and metadata
- * - Keyword tags
- * - Responsive design (stacks vertically on mobile)
+ * A sophisticated magazine-style card featuring:
+ * - Asymmetric, editorial layout
+ * - Large, bold typography
+ * - Elegant hover interactions
+ * - Magazine-inspired spacing and details
+ * - Category-specific accent colors
  *
  * @component
  * @param {ArticleListCardProps} props - Component props
@@ -53,76 +50,104 @@ const ArticleListCard = ({
 }: ArticleListCardProps) => {
   return (
     <Link to={`/article/${id}`}>
-      <Card className="flex flex-col md:flex-row gap-6 p-6 hover:shadow-elegant transition-smooth group border-border/50 hover:border-primary/20 hover:bg-accent/30">
-        {/* Thumbnail */}
-        <div className="flex-shrink-0 overflow-hidden rounded-xl">
-          <img
-            src={thumbnail}
-            alt={title}
-            className="w-full md:w-56 h-48 md:h-56 object-cover transition-transform duration-700 group-hover:scale-105"
-          />
-        </div>
+      <article className="group cursor-pointer">
+        <Card className="border-0 shadow-none hover:shadow-none bg-transparent p-0 overflow-hidden">
+          <div className="grid md:grid-cols-5 gap-8 md:gap-12 pb-12 border-b border-border/40 group-hover:border-border/60 transition-all duration-500">
+            {/* Image Column - 2/5 width */}
+            <div className="md:col-span-2 relative overflow-hidden">
+              <div className="aspect-[4/5] relative">
+                <img
+                  src={thumbnail}
+                  alt={title}
+                  className="w-full h-full object-cover transition-all duration-700 ease-out group-hover:scale-105"
+                />
 
-        {/* Content */}
-        <div className="flex-1 flex flex-col gap-3">
-          {/* Category Badge */}
-          <Badge
-            variant="secondary"
-            className={cn(
-              "w-fit text-xs font-semibold tracking-wide transition-smooth",
-              category === "K-POP"
-                ? "bg-kpop-100 text-kpop-700 group-hover:bg-kpop-200"
-                : "bg-mcu-100 text-mcu-700 group-hover:bg-mcu-200"
-            )}
-          >
-            {category}
-          </Badge>
+                {/* Category badge overlay */}
+                <div className="absolute top-4 left-4">
+                  <Badge
+                    className={cn(
+                      "text-xs font-semibold tracking-wider uppercase px-3 py-1.5 backdrop-blur-sm border transition-all duration-300",
+                      category === "K-POP"
+                        ? "bg-kpop-600/90 text-white border-kpop-400/50 hover:bg-kpop-700"
+                        : "bg-mcu-600/90 text-white border-mcu-400/50 hover:bg-mcu-700"
+                    )}
+                  >
+                    {category}
+                  </Badge>
+                </div>
+              </div>
+            </div>
 
-          {/* Title */}
-          <h3 className="text-2xl md:text-3xl font-bold line-clamp-2 group-hover:text-primary transition-smooth font-display leading-tight tracking-tight">
-            {title}
-          </h3>
+            {/* Content Column - 3/5 width */}
+            <div className="md:col-span-3 flex flex-col justify-center space-y-6">
+              {/* Eyebrow - Date */}
+              <div className="flex items-center gap-3">
+                <span className="text-xs uppercase tracking-[0.2em] text-muted-foreground font-medium">
+                  {date}
+                </span>
+                <span className="text-muted-foreground/50">•</span>
+                <span className="text-xs text-muted-foreground font-medium">
+                  By {author.name}
+                </span>
+              </div>
 
-          {/* Author & Date */}
-          <div className="flex items-center gap-3 text-sm text-muted-foreground">
-            <span className="font-semibold">By {author.name}</span>
-            <span className="text-border">·</span>
-            <span className="flex items-center gap-1.5">
-              <Calendar className="h-3.5 w-3.5" />
-              {date}
-            </span>
+              {/* Headline - Large, editorial typography */}
+              <h3 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold leading-[1.1] tracking-tight group-hover:text-primary/90 transition-colors duration-300 decorative-underline">
+                {title}
+              </h3>
+
+              {/* Deck - Summary */}
+              <p className="text-base md:text-lg text-muted-foreground leading-relaxed line-clamp-3 max-w-2xl">
+                {summary}
+              </p>
+
+              {/* Keywords */}
+              {keywords.length > 0 && (
+                <div className="flex flex-wrap gap-2">
+                  {keywords.slice(0, 4).map((keyword) => (
+                    <span
+                      key={keyword}
+                      className="text-xs px-3 py-1.5 rounded-sm bg-accent/50 text-foreground/70 border border-border/50 font-medium hover:bg-accent transition-colors"
+                    >
+                      {keyword}
+                    </span>
+                  ))}
+                </div>
+              )}
+
+              {/* Meta Info - Views & Likes */}
+              <div className="flex items-center gap-6 pt-4">
+                <span className="flex items-center gap-2 text-sm text-muted-foreground font-medium group-hover:text-foreground/80 transition-colors">
+                  <Eye className="h-4 w-4" />
+                  {views.toLocaleString()}
+                </span>
+                <span className="flex items-center gap-2 text-sm text-muted-foreground font-medium group-hover:text-foreground/80 transition-colors">
+                  <Heart className="h-4 w-4" />
+                  {likes}
+                </span>
+              </div>
+
+              {/* Read more link */}
+              <div className="inline-flex items-center gap-2 text-sm font-semibold tracking-wide uppercase text-foreground/70 group-hover:text-foreground group-hover:gap-4 transition-all">
+                <span>Read Article</span>
+                <svg
+                  className="w-4 h-4"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2.5}
+                    d="M17 8l4 4m0 0l-4 4m4-4H3"
+                  />
+                </svg>
+              </div>
+            </div>
           </div>
-
-          {/* Summary */}
-          <p className="text-base text-muted-foreground line-clamp-2 leading-relaxed">
-            {summary}
-          </p>
-
-          {/* Keywords */}
-          <div className="flex flex-wrap gap-2 mt-2">
-            {keywords.slice(0, 3).map((keyword) => (
-              <span
-                key={keyword}
-                className="text-xs px-3 py-1.5 rounded-full bg-muted/50 text-muted-foreground border border-border/50 font-medium transition-smooth group-hover:border-border"
-              >
-                {keyword}
-              </span>
-            ))}
-          </div>
-
-          {/* Meta Info */}
-          <div className="flex items-center gap-5 text-sm text-muted-foreground mt-auto pt-3 border-t border-border/30">
-            <span className="flex items-center gap-1.5 font-medium">
-              <Eye className="h-4 w-4" />
-              {views.toLocaleString()}
-            </span>
-            <span className="flex items-center gap-1.5 font-medium">
-              <Heart className="h-4 w-4" />
-              {likes}
-            </span>
-          </div>
-        </div>
-      </Card>
+        </Card>
+      </article>
     </Link>
   );
 };
