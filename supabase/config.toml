@@ -1,0 +1,7 @@
+project_id = "limvajcxxkgleztxrqpx"
+
+[functions.fix-article-titles]
+verify_jwt = false
+
+[functions.track-analytics]
+verify_jwt = false

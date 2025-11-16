@@ -1,0 +1,410 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/**
+ * Editorial Magazine Design System
+ *
+ * A sophisticated design system for fan-biz-insights magazine
+ * Features: Editorial typography, warm color palette, smooth animations
+ *
+ * Design Philosophy:
+ * - Editorial elegance with Playfair Display + Manrope
+ * - Warm neutrals for sophisticated reading experience
+ * - Vibrant category theming (K-POP pink, MCU blue)
+ * - Purposeful animations and micro-interactions
+ */
+
+/* ============================================
+   BASE LAYER - Design Tokens & Variables
+   ============================================ */
+
+@layer base {
+  :root {
+    /* ========== Color System ========== */
+
+    /* Base colors - Warm, sophisticated neutrals */
+    --background: 40 10% 99%;  /* Warm off-white */
+    --foreground: 24 9% 10%;   /* Rich charcoal */
+
+    /* Component-specific colors */
+    --card: 0 0% 100%;
+    --card-foreground: 24 9% 10%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 24 9% 10%;
+
+    /* Primary colors - Editorial charcoal */
+    --primary: 24 9% 10%;
+    --primary-foreground: 0 0% 100%;
+
+    /* Secondary & utility colors */
+    --secondary: 40 20% 96%;
+    --secondary-foreground: 24 9% 10%;
+    --muted: 40 15% 95%;
+    --muted-foreground: 25 7% 45%;
+    --accent: 40 20% 94%;
+    --accent-foreground: 24 9% 10%;
+
+    /* State colors */
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 40 12% 90%;
+    --input: 40 12% 90%;
+    --ring: 24 9% 10%;
+
+    /* Border radius */
+    --radius: 0.75rem;
+
+    /* ========== Category Theme Colors ========== */
+
+    /* K-POP Theme - Vibrant pink to purple gradient
+       Usage: bg-kpop-500, text-kpop-700, etc. */
+    --kpop-50: 330 100% 98%;
+    --kpop-100: 330 90% 96%;
+    --kpop-200: 330 85% 92%;
+    --kpop-300: 330 80% 82%;
+    --kpop-500: 330 85% 55%;
+    --kpop-600: 330 75% 45%;
+    --kpop-700: 330 70% 35%;
+    --kpop-900: 330 65% 20%;
+
+    /* MCU Theme - Electric blue with cosmic accents
+       Usage: bg-mcu-500, text-mcu-700, etc. */
+    --mcu-50: 220 100% 98%;
+    --mcu-100: 220 95% 95%;
+    --mcu-200: 220 90% 90%;
+    --mcu-300: 220 85% 80%;
+    --mcu-500: 220 90% 56%;
+    --mcu-600: 220 85% 48%;
+    --mcu-700: 220 80% 38%;
+    --mcu-900: 220 75% 22%;
+
+    /* ========== Layout & Spacing ========== */
+
+    --section-spacing: 6rem;       /* Vertical spacing between major sections */
+    --content-max-width: 42rem;    /* Optimal reading line length (66-75 characters) */
+    --article-line-height: 1.85;   /* Comfortable reading line height */
+
+    /* ========== Transitions & Animations ========== */
+
+    /* Smooth transition - Standard UI interactions */
+    --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+
+    /* Spring transition - Playful, energetic interactions */
+    --transition-spring: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+
+    /* ========== Shadow System ========== */
+
+    /* Subtle depth for cards and elements */
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.02);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.04), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.06), 0 4px 6px -2px rgba(0, 0, 0, 0.03);
+    --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.08), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+
+    /* ========== Chart Colors ========== */
+
+    --chart-1: 220 90% 56%;  /* Blue */
+    --chart-2: 330 85% 55%;  /* Pink */
+    --chart-3: 142 76% 45%;  /* Green */
+    --chart-4: 271 81% 60%;  /* Purple */
+    --chart-5: 43 96% 56%;   /* Yellow */
+  }
+
+  /* ========== Dark Mode ========== */
+  .dark {
+    /* Base colors - Deep charcoal background */
+    --background: 24 10% 8%;
+    --foreground: 40 10% 98%;
+
+    /* Component colors */
+    --card: 24 8% 12%;
+    --card-foreground: 40 10% 98%;
+    --popover: 24 8% 12%;
+    --popover-foreground: 40 10% 98%;
+
+    /* Primary colors - Inverted for dark mode */
+    --primary: 40 10% 98%;
+    --primary-foreground: 24 10% 8%;
+
+    /* Secondary & utility colors */
+    --secondary: 24 6% 16%;
+    --secondary-foreground: 40 10% 98%;
+    --muted: 24 6% 18%;
+    --muted-foreground: 25 5% 60%;
+    --accent: 24 6% 16%;
+    --accent-foreground: 40 10% 98%;
+
+    /* State colors */
+    --destructive: 0 78% 55%;
+    --destructive-foreground: 40 10% 98%;
+    --border: 24 6% 20%;
+    --input: 24 6% 20%;
+    --ring: 40 10% 85%;
+
+    /* Enhanced shadows for dark mode */
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4), 0 2px 4px -1px rgba(0, 0, 0, 0.3);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.5), 0 4px 6px -2px rgba(0, 0, 0, 0.4);
+    --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.6), 0 10px 10px -5px rgba(0, 0, 0, 0.5);
+
+    /* Brighter chart colors for dark backgrounds */
+    --chart-1: 220 90% 65%;
+    --chart-2: 330 85% 65%;
+    --chart-3: 142 76% 55%;
+    --chart-4: 271 81% 70%;
+    --chart-5: 43 96% 65%;
+  }
+}
+
+/* ============================================
+   TYPOGRAPHY & BASE STYLES
+   ============================================ */
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Manrope', 'Pretendard Variable', 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+    font-weight: 400;
+    letter-spacing: -0.01em;
+  }
+
+  /* Enhanced focus states for accessibility */
+  *:focus-visible {
+    @apply outline-none ring-2 ring-primary ring-offset-2 ring-offset-background;
+    outline-offset: 2px;
+  }
+
+  /* Typography - Editorial Magazine style */
+  .article-content {
+    @apply leading-relaxed;
+    font-family: 'Manrope', 'Pretendard Variable', 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+    font-size: 1.125rem;
+    line-height: 1.85;
+    font-weight: 400;
+    color: hsl(var(--foreground));
+  }
+
+  .article-content h1 {
+    @apply font-display font-bold mb-6 mt-12;
+    font-size: clamp(2.25rem, 5vw, 3rem);
+    line-height: 1.15;
+    letter-spacing: -0.03em;
+  }
+
+  .article-content h2 {
+    @apply font-display font-bold mb-5 mt-10;
+    font-size: clamp(1.75rem, 4vw, 2.25rem);
+    line-height: 1.25;
+    letter-spacing: -0.025em;
+  }
+
+  .article-content h3 {
+    @apply font-display font-semibold mb-4 mt-8;
+    font-size: clamp(1.375rem, 3vw, 1.75rem);
+    line-height: 1.35;
+    letter-spacing: -0.02em;
+  }
+
+  .article-content p {
+    @apply mb-6;
+    max-width: var(--content-max-width);
+  }
+
+  .article-content blockquote {
+    @apply border-l-4 border-primary/30 pl-8 italic my-10 text-foreground/90;
+    font-size: 1.25rem;
+    line-height: 1.75;
+    font-weight: 500;
+    letter-spacing: -0.015em;
+  }
+
+  .article-content ul,
+  .article-content ol {
+    @apply mb-6 space-y-3 pl-8;
+    max-width: var(--content-max-width);
+  }
+
+  .article-content ul {
+    @apply list-disc;
+  }
+
+  .article-content ol {
+    @apply list-decimal;
+  }
+
+  .article-content li {
+    @apply mb-3;
+    padding-left: 0.5rem;
+  }
+
+  .article-content a {
+    @apply text-primary underline decoration-2 underline-offset-2 hover:text-primary/70 transition-colors;
+    font-weight: 500;
+  }
+
+  .article-content table {
+    @apply w-full border-collapse my-10;
+    max-width: var(--content-max-width);
+  }
+
+  .article-content th,
+  .article-content td {
+    @apply border border-border px-5 py-4 text-left;
+  }
+
+  .article-content th {
+    @apply bg-muted font-semibold;
+    font-size: 0.9375rem;
+  }
+
+  .article-content figure {
+    @apply my-10;
+  }
+
+  .article-content figcaption {
+    @apply text-sm text-muted-foreground mt-4 text-center italic;
+    font-weight: 500;
+  }
+
+  .article-content img {
+    @apply w-full rounded-xl shadow-lg;
+  }
+}
+
+/* ============================================
+   UTILITIES LAYER - Animations & Helpers
+   ============================================ */
+
+@layer utilities {
+  /* ========== Keyframe Animations ========== */
+
+  /* Fade in with subtle upward movement */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(12px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Slide up with fade - More dramatic entrance */
+  @keyframes slideUp {
+    from {
+      opacity: 0;
+      transform: translateY(24px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Scale in with fade - Attention-grabbing */
+  @keyframes scaleIn {
+    from {
+      opacity: 0;
+      transform: scale(0.95);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  /* ========== Animation Classes ========== */
+
+  /* Usage: className="animate-fade-in" */
+  .animate-fade-in {
+    animation: fadeIn 0.6s cubic-bezier(0.4, 0, 0.2, 1) both;
+  }
+
+  .animate-slide-up {
+    animation: slideUp 0.7s cubic-bezier(0.4, 0, 0.2, 1) both;
+  }
+
+  .animate-scale-in {
+    animation: scaleIn 0.5s cubic-bezier(0.4, 0, 0.2, 1) both;
+  }
+
+  /* ========== Staggered Animation Delays ========== */
+  /* Usage: className="animate-fade-in animate-delay-200" */
+
+  .animate-delay-100 {
+    animation-delay: 100ms;
+  }
+
+  .animate-delay-200 {
+    animation-delay: 200ms;
+  }
+
+  .animate-delay-300 {
+    animation-delay: 300ms;
+  }
+
+  .animate-delay-400 {
+    animation-delay: 400ms;
+  }
+
+  /* ========== Glass Morphism Effect ========== */
+  /* Usage: className="glass" for frosted glass appearance */
+
+  .glass {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+
+  .dark .glass {
+    background: rgba(0, 0, 0, 0.4);
+  }
+
+  /* ========== Gradient Text Effects ========== */
+  /* Usage: className="gradient-text-kpop" or "gradient-text-mcu" */
+
+  .gradient-text-kpop {
+    background: linear-gradient(135deg, hsl(var(--kpop-600)), hsl(var(--kpop-500)));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .gradient-text-mcu {
+    background: linear-gradient(135deg, hsl(var(--mcu-600)), hsl(var(--mcu-500)));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  /* ========== Transition Utilities ========== */
+  /* Usage: className="transition-smooth" or "transition-spring" */
+
+  .transition-smooth {
+    transition: var(--transition-smooth);
+  }
+
+  .transition-spring {
+    transition: var(--transition-spring);
+  }
+
+  /* ========== Shadow Utilities ========== */
+  /* Usage: className="shadow-elegant" for sophisticated depth */
+
+  .shadow-elegant {
+    box-shadow: var(--shadow-lg);
+  }
+
+  .shadow-dramatic {
+    box-shadow: var(--shadow-xl);
+  }
+}

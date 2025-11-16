@@ -1,0 +1,8 @@
+/* App-specific styles - Most styling is handled by Tailwind CSS and index.css */
+
+/* Root container optimizations */
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
