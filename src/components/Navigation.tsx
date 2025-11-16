@@ -57,13 +57,13 @@ const Navigation = () => {
 
   return (
     <>
-      <header className="sticky top-0 z-50 w-full glass border-b border-border/20 animate-slide-up">
-        <nav className="container mx-auto px-6 md:px-8 lg:px-12 py-8" role="navigation" aria-label="Main navigation">
-          <div className="flex items-center justify-between max-w-7xl mx-auto">
+      <header className="sticky top-0 z-50 w-full glass border-b border-border/40 animate-fade-in">
+        <nav className="container mx-auto px-4 md:px-6 py-5" role="navigation" aria-label="Main navigation">
+          <div className="flex items-center justify-between max-w-6xl mx-auto">
             {/* Logo / Title */}
             <button
               onClick={handleTitleClick}
-              className="text-2xl md:text-3xl font-display font-bold tracking-tight hover:opacity-70 transition-all duration-300 cursor-pointer"
+              className="text-xl md:text-2xl font-bold hover:opacity-80 transition-opacity duration-200 cursor-pointer"
               aria-label="Home - 덕질로 배운 비즈니스"
             >
               덕질로 배운 비즈니스
@@ -72,16 +72,16 @@ const Navigation = () => {
             {/* Menu Toggle */}
             <button
               onClick={toggleMenu}
-              className="flex flex-col items-center gap-1 px-3 py-2 hover:opacity-70 transition-smooth group"
+              className="flex items-center gap-2 px-3 py-2 hover:bg-accent rounded-md transition-all duration-200 group"
               aria-label={isExpanded ? "메뉴 닫기" : "메뉴 열기"}
               aria-expanded={isExpanded}
             >
-              <span className="text-[10px] uppercase tracking-[0.2em] font-semibold text-muted-foreground group-hover:text-foreground transition-colors">
-                Menu
+              <span className="text-sm font-medium text-foreground/70 group-hover:text-foreground">
+                메뉴
               </span>
               <ChevronDown
                 className={cn(
-                  "h-3 w-3 text-muted-foreground transition-all duration-300 group-hover:text-foreground",
+                  "h-4 w-4 text-foreground/70 transition-all duration-200 group-hover:text-foreground",
                   isExpanded && "rotate-180"
                 )}
               />

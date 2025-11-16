@@ -60,50 +60,48 @@ const Home = () => {
           />
         </div>
 
-        {/* Article List - Magazine Editorial Style */}
+        {/* Article List - Clean Magazine Style */}
         <section
           id="article-list"
-          className="container mx-auto px-6 md:px-8 lg:px-12 py-24 animate-fade-in animate-delay-300"
+          className="container mx-auto px-4 md:px-6 py-16 md:py-20 animate-fade-in animate-delay-300"
         >
-          <div className="max-w-7xl mx-auto">
-            {/* Section Header - Editorial Style */}
-            <div className="mb-20">
-              <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 pb-6 border-b border-border/30">
+          <div className="max-w-6xl mx-auto">
+            {/* Section Header - Clean and minimal */}
+            <div className="mb-12 md:mb-16">
+              <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 pb-6 border-b border-border/40">
                 <div>
-                  <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground font-semibold mb-4">
+                  <p className="text-xs uppercase tracking-wider text-muted-foreground font-semibold mb-3">
                     Latest Articles
                   </p>
-                  <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold tracking-tight leading-[1.1]">
+                  <h2 className="text-3xl md:text-4xl font-bold leading-tight">
                     {selectedKeyword ? (
                       <>
-                        <span className="gradient-text-kpop">{selectedKeyword}</span>
-                        <br />
-                        <span className="text-foreground/60">관련 글</span>
+                        <span className="gradient-text-kpop">{selectedKeyword}</span> 관련 글
                       </>
                     ) : (
                       "모든 글"
                     )}
                   </h2>
                 </div>
-                <div className="text-sm text-muted-foreground font-medium tracking-wide">
-                  {filteredArticles.length} {filteredArticles.length === 1 ? 'Article' : 'Articles'}
+                <div className="text-sm text-muted-foreground font-medium">
+                  {filteredArticles.length}개의 글
                 </div>
               </div>
             </div>
 
             {isLoading ? (
-              <div className="space-y-12">
+              <div className="space-y-8">
                 {[...Array(5)].map((_, i) => (
-                  <Skeleton key={i} className="h-[400px] w-full" />
+                  <Skeleton key={i} className="h-[300px] w-full" />
                 ))}
               </div>
             ) : (
-              <div className="flex flex-col gap-16">
+              <div className="flex flex-col">
                 {filteredArticles.map((article, index) => (
                   <div
                     key={article.id}
                     className="animate-fade-in"
-                    style={{ animationDelay: `${index * 80}ms` }}
+                    style={{ animationDelay: `${index * 60}ms` }}
                   >
                     <ArticleListCard
                       id={article.id}
@@ -128,28 +126,25 @@ const Home = () => {
         </section>
       </main>
 
-      {/* Magazine-style footer */}
-      <footer className="border-t border-border/20 py-20 mt-32">
-        <div className="container mx-auto px-6 md:px-8 lg:px-12">
-          <div className="max-w-7xl mx-auto">
-            <div className="grid md:grid-cols-2 gap-12 mb-12">
+      {/* Clean footer */}
+      <footer className="border-t border-border/40 py-16 mt-24">
+        <div className="container mx-auto px-4 md:px-6">
+          <div className="max-w-6xl mx-auto">
+            <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-8 mb-8">
               <div>
-                <h3 className="text-3xl md:text-4xl font-display font-bold mb-4 tracking-tight">
+                <h3 className="text-2xl md:text-3xl font-bold mb-2">
                   덕질로 배운 비즈니스
                 </h3>
-                <p className="text-lg text-muted-foreground leading-relaxed max-w-xl">
+                <p className="text-base text-muted-foreground">
                   팬덤과 비즈니스의 교차점에서 발견한 인사이트
                 </p>
               </div>
-              <div className="flex items-center justify-start md:justify-end">
-                <div className="text-sm text-muted-foreground space-y-2">
-                  <p className="font-medium">Editorial Magazine</p>
-                  <p>© 2025 Fan Biz Insights</p>
-                </div>
+              <div className="text-sm text-muted-foreground">
+                © 2025 Fan Biz Insights
               </div>
             </div>
-            <div className="pt-8 border-t border-border/20">
-              <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground/60 text-center">
+            <div className="pt-6 border-t border-border/30">
+              <p className="text-xs text-muted-foreground/60 text-center">
                 Designed with Claude Code
               </p>
             </div>

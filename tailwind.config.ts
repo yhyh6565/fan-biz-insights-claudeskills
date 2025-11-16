@@ -29,9 +29,8 @@ export default {
     extend: {
       /* ========== Typography ========== */
       fontFamily: {
-        // Default body font - Modern, clean sans-serif
+        // Default body font - Pretendard Variable for optimal Korean readability
         sans: [
-          "Work Sans",
           "Pretendard Variable",
           "Pretendard",
           "-apple-system",
@@ -39,12 +38,8 @@ export default {
           "system-ui",
           "sans-serif",
         ],
-        // Editorial serif for elegance
-        serif: ["Cormorant Garamond", "Libre Baskerville", "Georgia", "serif"],
-        // Display font for headings - Elegant, editorial
-        display: ["Cormorant Garamond", "Libre Baskerville", "Georgia", "serif"],
-        // Korean text optimization
-        pretendard: [
+        // Display font for headings - same as body for consistency
+        display: [
           "Pretendard Variable",
           "Pretendard",
           "-apple-system",

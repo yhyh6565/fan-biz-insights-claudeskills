@@ -1,20 +1,19 @@
-@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Work+Sans:wght@300;400;500;600;700&display=swap');
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 /**
- * Editorial Magazine Design System
- *
- * A sophisticated design system for fan-biz-insights magazine
- * Features: Editorial typography, warm color palette, smooth animations
+ * Modern Web Magazine Design System - 덕질로 배운 비즈니스
  *
  * Design Philosophy:
- * - Editorial elegance with Playfair Display + Manrope
- * - Warm neutrals for sophisticated reading experience
- * - Vibrant category theming (K-POP pink, MCU blue)
- * - Purposeful animations and micro-interactions
+ * - 가독성 최우선: Pretendard Variable로 한글 최적화
+ * - 미니멀 레이아웃: 콘텐츠가 돋보이는 깔끔한 디자인
+ * - 성능 최적화: 부드러운 60fps 애니메이션
+ * - 접근성: WCAG 2.1 AA 준수
+ *
+ * Inspired by: Medium, Brunch, The Verge
  */
 
 /* ============================================
@@ -23,39 +22,39 @@
 
 @layer base {
   :root {
-    /* ========== Color System ========== */
+    /* ========== Color System - Optimized for Readability ========== */
 
-    /* Base colors - Warm, sophisticated neutrals */
-    --background: 40 10% 99%;  /* Warm off-white */
-    --foreground: 24 9% 10%;   /* Rich charcoal */
+    /* Base colors - Clean, high contrast */
+    --background: 0 0% 100%;     /* Pure white for maximum readability */
+    --foreground: 0 0% 9%;       /* Near-black text (92% contrast) */
 
     /* Component-specific colors */
     --card: 0 0% 100%;
-    --card-foreground: 24 9% 10%;
+    --card-foreground: 0 0% 9%;
     --popover: 0 0% 100%;
-    --popover-foreground: 24 9% 10%;
+    --popover-foreground: 0 0% 9%;
 
-    /* Primary colors - Editorial charcoal */
-    --primary: 24 9% 10%;
+    /* Primary colors - Deep charcoal */
+    --primary: 0 0% 9%;
     --primary-foreground: 0 0% 100%;
 
-    /* Secondary & utility colors */
-    --secondary: 40 20% 96%;
-    --secondary-foreground: 24 9% 10%;
-    --muted: 40 15% 95%;
-    --muted-foreground: 25 7% 45%;
-    --accent: 40 20% 94%;
-    --accent-foreground: 24 9% 10%;
+    /* Secondary & utility colors - Subtle grays */
+    --secondary: 0 0% 96%;
+    --secondary-foreground: 0 0% 9%;
+    --muted: 0 0% 96%;
+    --muted-foreground: 0 0% 45%;
+    --accent: 0 0% 95%;
+    --accent-foreground: 0 0% 9%;
 
     /* State colors */
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
-    --border: 40 12% 90%;
-    --input: 40 12% 90%;
-    --ring: 24 9% 10%;
+    --border: 0 0% 89%;          /* Subtle borders */
+    --input: 0 0% 89%;
+    --ring: 0 0% 9%;
 
-    /* Border radius */
-    --radius: 0.75rem;
+    /* Border radius - Minimal, modern */
+    --radius: 0.5rem;
 
     /* ========== Category Theme Colors ========== */
 
@@ -81,19 +80,38 @@
     --mcu-700: 220 80% 38%;
     --mcu-900: 220 75% 22%;
 
-    /* ========== Layout & Spacing ========== */
+    /* ========== Layout & Spacing - Medium/Brunch Style ========== */
 
-    --section-spacing: 6rem;       /* Vertical spacing between major sections */
-    --content-max-width: 42rem;    /* Optimal reading line length (66-75 characters) */
-    --article-line-height: 1.85;   /* Comfortable reading line height */
+    --section-spacing: 5rem;          /* Vertical spacing between sections */
+    --content-max-width: 680px;       /* Optimal reading width (66-75 chars) */
+    --container-max-width: 1280px;    /* Maximum container width */
+    --article-line-height: 1.75;      /* Comfortable reading line height */
 
-    /* ========== Transitions & Animations ========== */
+    /* Grid system */
+    --grid-gap: 2rem;                 /* Standard grid gap */
+    --grid-gap-sm: 1rem;              /* Small grid gap */
 
-    /* Smooth transition - Standard UI interactions */
-    --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    /* ========== Typography Scale ========== */
 
-    /* Spring transition - Playful, energetic interactions */
-    --transition-spring: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+    --font-size-xs: 0.75rem;          /* 12px - Caption, labels */
+    --font-size-sm: 0.875rem;         /* 14px - Small text */
+    --font-size-base: 1rem;           /* 16px - Body */
+    --font-size-lg: 1.125rem;         /* 18px - Large body */
+    --font-size-xl: 1.25rem;          /* 20px - Subheading */
+    --font-size-2xl: 1.5rem;          /* 24px - Heading 3 */
+    --font-size-3xl: 1.875rem;        /* 30px - Heading 2 */
+    --font-size-4xl: 2.25rem;         /* 36px - Heading 1 */
+    --font-size-5xl: 3rem;            /* 48px - Display */
+
+    /* ========== Transitions & Animations - 60fps Optimized ========== */
+
+    /* Smooth transition - transform and opacity only (GPU accelerated) */
+    --transition-smooth: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+                         opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+    /* Fast transition - Immediate feedback */
+    --transition-fast: transform 0.15s cubic-bezier(0.4, 0, 0.2, 1),
+                       opacity 0.15s cubic-bezier(0.4, 0, 0.2, 1);
 
     /* ========== Shadow System ========== */
 
@@ -173,9 +191,15 @@
 
   body {
     @apply bg-background text-foreground antialiased;
-    font-family: 'Work Sans', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+    font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
     font-weight: 400;
-    letter-spacing: -0.01em;
+    font-size: 16px;
+    line-height: 1.75;
+    letter-spacing: -0.003em;
+    /* Enable font smoothing for better readability */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
   }
 
   /* Enhanced focus states for accessibility */
@@ -184,35 +208,40 @@
     outline-offset: 2px;
   }
 
-  /* Typography - Editorial Magazine style */
+  /* Typography - Medium/Brunch Style for Optimal Readability */
   .article-content {
     @apply leading-relaxed;
-    font-family: 'Manrope', 'Pretendard Variable', 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
-    font-size: 1.125rem;
-    line-height: 1.85;
+    font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+    font-size: 1.125rem;        /* 18px - optimal for reading */
+    line-height: 1.75;          /* 28.8px - comfortable spacing */
     font-weight: 400;
+    letter-spacing: -0.003em;
     color: hsl(var(--foreground));
+    max-width: var(--content-max-width);
   }
 
   .article-content h1 {
-    @apply font-display font-bold mb-6 mt-12;
-    font-size: clamp(2.25rem, 5vw, 3rem);
-    line-height: 1.15;
-    letter-spacing: -0.03em;
+    @apply font-bold mb-6 mt-12;
+    font-size: clamp(2rem, 5vw, 2.5rem);   /* 32-40px */
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    font-weight: 700;
   }
 
   .article-content h2 {
-    @apply font-display font-bold mb-5 mt-10;
-    font-size: clamp(1.75rem, 4vw, 2.25rem);
-    line-height: 1.25;
-    letter-spacing: -0.025em;
+    @apply font-bold mb-5 mt-10;
+    font-size: clamp(1.5rem, 4vw, 1.875rem);  /* 24-30px */
+    line-height: 1.3;
+    letter-spacing: -0.015em;
+    font-weight: 700;
   }
 
   .article-content h3 {
-    @apply font-display font-semibold mb-4 mt-8;
-    font-size: clamp(1.375rem, 3vw, 1.75rem);
-    line-height: 1.35;
-    letter-spacing: -0.02em;
+    @apply font-semibold mb-4 mt-8;
+    font-size: clamp(1.25rem, 3vw, 1.5rem);   /* 20-24px */
+    line-height: 1.4;
+    letter-spacing: -0.01em;
+    font-weight: 600;
   }
 
   .article-content p {
@@ -286,41 +315,52 @@
    ============================================ */
 
 @layer utilities {
-  /* ========== Keyframe Animations ========== */
+  /* ========== Keyframe Animations - 60fps Optimized ========== */
+  /* Only animate transform and opacity for best performance */
 
   /* Fade in with subtle upward movement */
   @keyframes fadeIn {
     from {
       opacity: 0;
-      transform: translateY(12px);
+      transform: translate3d(0, 16px, 0);
     }
     to {
       opacity: 1;
-      transform: translateY(0);
+      transform: translate3d(0, 0, 0);
     }
   }
 
-  /* Slide up with fade - More dramatic entrance */
+  /* Slide up with fade - Smooth entrance */
   @keyframes slideUp {
     from {
       opacity: 0;
-      transform: translateY(24px);
+      transform: translate3d(0, 32px, 0);
     }
     to {
       opacity: 1;
-      transform: translateY(0);
+      transform: translate3d(0, 0, 0);
     }
   }
 
-  /* Scale in with fade - Attention-grabbing */
+  /* Scale in with fade - Subtle attention */
   @keyframes scaleIn {
     from {
       opacity: 0;
-      transform: scale(0.95);
+      transform: scale3d(0.96, 0.96, 1);
     }
     to {
       opacity: 1;
-      transform: scale(1);
+      transform: scale3d(1, 1, 1);
+    }
+  }
+
+  /* Image zoom - Smooth hover effect */
+  @keyframes imageZoom {
+    from {
+      transform: scale3d(1, 1, 1);
+    }
+    to {
+      transform: scale3d(1.05, 1.05, 1);
     }
   }
 
@@ -328,15 +368,18 @@
 
   /* Usage: className="animate-fade-in" */
   .animate-fade-in {
-    animation: fadeIn 0.6s cubic-bezier(0.4, 0, 0.2, 1) both;
+    animation: fadeIn 0.5s cubic-bezier(0.4, 0, 0.2, 1) both;
+    will-change: transform, opacity;
   }
 
   .animate-slide-up {
-    animation: slideUp 0.7s cubic-bezier(0.4, 0, 0.2, 1) both;
+    animation: slideUp 0.6s cubic-bezier(0.4, 0, 0.2, 1) both;
+    will-change: transform, opacity;
   }
 
   .animate-scale-in {
-    animation: scaleIn 0.5s cubic-bezier(0.4, 0, 0.2, 1) both;
+    animation: scaleIn 0.4s cubic-bezier(0.4, 0, 0.2, 1) both;
+    will-change: transform, opacity;
   }
 
   /* ========== Staggered Animation Delays ========== */
@@ -410,94 +453,100 @@
     box-shadow: var(--shadow-xl);
   }
 
-  /* ========== Magazine-Specific Utilities ========== */
+  /* ========== Web Magazine Utilities - Medium/Brunch Style ========== */
 
-  /* Drop caps for editorial style */
-  .drop-cap::first-letter {
-    float: left;
-    font-size: 4.5rem;
-    line-height: 0.85;
-    padding-right: 0.15em;
-    font-weight: 700;
-    font-family: 'Cormorant Garamond', serif;
-    color: hsl(var(--primary));
-  }
-
-  /* Pull quote styling */
+  /* Pull quote styling - Clean and minimal */
   .pull-quote {
-    font-size: 1.75rem;
-    line-height: 1.4;
-    font-weight: 600;
-    font-family: 'Cormorant Garamond', serif;
-    font-style: italic;
-    color: hsl(var(--foreground) / 0.95);
-    border-left: 4px solid hsl(var(--primary));
-    padding-left: 2rem;
-    margin: 3rem 0;
+    font-size: 1.5rem;
+    line-height: 1.6;
+    font-weight: 500;
+    color: hsl(var(--foreground));
+    border-left: 3px solid hsl(var(--foreground));
+    padding-left: 1.5rem;
+    margin: 2.5rem 0;
+    font-style: normal;
   }
 
-  /* Magazine grid layouts */
-  .magazine-grid {
-    display: grid;
-    grid-template-columns: repeat(12, 1fr);
-    gap: 2rem;
+  /* Content container - Optimal reading width */
+  .content-container {
+    max-width: var(--content-max-width);
+    margin-left: auto;
+    margin-right: auto;
   }
 
-  /* Asymmetric article card */
-  .asymmetric-card:nth-child(3n+1) {
-    grid-column: span 7;
+  /* Card hover effect - Smooth lift */
+  .card-hover {
+    transition: var(--transition-smooth);
+    will-change: transform, opacity;
   }
 
-  .asymmetric-card:nth-child(3n+2) {
-    grid-column: span 5;
+  .card-hover:hover {
+    transform: translate3d(0, -4px, 0);
   }
 
-  .asymmetric-card:nth-child(3n) {
-    grid-column: span 6;
-  }
-
-  @media (max-width: 768px) {
-    .asymmetric-card {
-      grid-column: span 12 !important;
-    }
-  }
-
-  /* Large editorial numbers */
-  .editorial-number {
-    font-size: 8rem;
-    line-height: 0.9;
-    font-weight: 300;
-    font-family: 'Cormorant Garamond', serif;
-    color: hsl(var(--primary) / 0.1);
-  }
-
-  /* Image overlay text */
-  .overlay-text {
+  /* Image container - Prevents layout shift */
+  .img-container {
     position: relative;
-    z-index: 10;
-    mix-blend-mode: normal;
+    overflow: hidden;
   }
 
-  /* Decorative underline */
-  .decorative-underline {
+  .img-container img {
+    transition: var(--transition-smooth);
+    will-change: transform;
+  }
+
+  .img-container:hover img {
+    transform: scale3d(1.05, 1.05, 1);
+  }
+
+  /* Subtle underline on hover */
+  .hover-underline {
     position: relative;
     display: inline-block;
   }
 
-  .decorative-underline::after {
+  .hover-underline::after {
     content: '';
     position: absolute;
-    bottom: -0.25rem;
+    bottom: 0;
     left: 0;
     width: 100%;
-    height: 3px;
-    background: linear-gradient(90deg, hsl(var(--kpop-500)), hsl(var(--mcu-500)));
+    height: 1px;
+    background: currentColor;
     transform: scaleX(0);
     transform-origin: left;
-    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: transform;
   }
 
-  .decorative-underline:hover::after {
+  .hover-underline:hover::after {
     transform: scaleX(1);
+  }
+
+  /* Fade in on scroll - Progressive enhancement */
+  @media (prefers-reduced-motion: no-preference) {
+    .fade-in-scroll {
+      opacity: 0;
+      transform: translate3d(0, 20px, 0);
+      transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1),
+                  transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+      will-change: opacity, transform;
+    }
+
+    .fade-in-scroll.is-visible {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+    }
+  }
+
+  /* Respect reduced motion preference */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
   }
 }
