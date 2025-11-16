@@ -1,19 +1,21 @@
 @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Grotesk:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 /**
- * Modern Web Magazine Design System - 덕질로 배운 비즈니스
+ * NEO-BRUTALIST CYBER-POP DESIGN SYSTEM
+ * 덕질로 배운 비즈니스
  *
  * Design Philosophy:
- * - 가독성 최우선: Pretendard Variable로 한글 최적화
- * - 미니멀 레이아웃: 콘텐츠가 돋보이는 깔끔한 디자인
- * - 성능 최적화: 부드러운 60fps 애니메이션
- * - 접근성: WCAG 2.1 AA 준수
+ * - BOLD & UNAPOLOGETIC: Maximum impact, zero restraint
+ * - CYBER-POP ENERGY: Vibrant colors matching K-pop fandom energy
+ * - RAW & INTENTIONAL: Neo-brutalist aesthetic with sharp edges
+ * - GLITCH & TRANSFORM: Digital artifacts and dramatic interactions
  *
- * Inspired by: Medium, Brunch, The Verge
+ * Aesthetic: Neo-Brutalism meets Y2K Cyberpunk
  */
 
 /* ============================================
@@ -22,63 +24,69 @@
 
 @layer base {
   :root {
-    /* ========== Color System - Optimized for Readability ========== */
+    /* ========== CYBER-POP COLOR SYSTEM ========== */
 
-    /* Base colors - Clean, high contrast */
-    --background: 0 0% 100%;     /* Pure white for maximum readability */
-    --foreground: 0 0% 9%;       /* Near-black text (92% contrast) */
+    /* Base colors - BOLD CONTRAST */
+    --background: 0 0% 100%;         /* Stark white */
+    --foreground: 0 0% 4%;           /* Deep black text */
 
-    /* Component-specific colors */
+    /* Cyber accent colors - VIBRANT & SATURATED */
+    --cyber-pink: 330 100% 50%;      /* #FF006E - Hot pink */
+    --cyber-blue: 187 100% 50%;      /* #00F0FF - Electric blue */
+    --cyber-green: 100 100% 54%;     /* #39FF14 - Neon green */
+    --cyber-purple: 280 100% 65%;    /* #9D4EDD - Vibrant purple */
+
+    /* Component colors - HIGH CONTRAST */
     --card: 0 0% 100%;
-    --card-foreground: 0 0% 9%;
+    --card-foreground: 0 0% 4%;
     --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 9%;
+    --popover-foreground: 0 0% 4%;
 
-    /* Primary colors - Deep charcoal */
-    --primary: 0 0% 9%;
+    /* Primary - Cyber Pink */
+    --primary: 330 100% 50%;         /* Hot pink */
     --primary-foreground: 0 0% 100%;
 
-    /* Secondary & utility colors - Subtle grays */
-    --secondary: 0 0% 96%;
-    --secondary-foreground: 0 0% 9%;
+    /* Secondary - Deep black */
+    --secondary: 0 0% 4%;
+    --secondary-foreground: 0 0% 100%;
+
+    /* Utility colors */
     --muted: 0 0% 96%;
-    --muted-foreground: 0 0% 45%;
-    --accent: 0 0% 95%;
-    --accent-foreground: 0 0% 9%;
+    --muted-foreground: 0 0% 30%;
+    --accent: 330 100% 50%;          /* Cyber pink accent */
+    --accent-foreground: 0 0% 100%;
 
     /* State colors */
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
-    --border: 0 0% 89%;          /* Subtle borders */
-    --input: 0 0% 89%;
-    --ring: 0 0% 9%;
+    --border: 0 0% 10%;              /* BOLD dark borders */
+    --input: 0 0% 10%;
+    --ring: 330 100% 50%;            /* Cyber pink ring */
 
-    /* Border radius - Minimal, modern */
-    --radius: 0.5rem;
+    /* Border radius - SHARP, NO CURVES */
+    --radius: 0rem;                  /* Brutalist: zero border radius */
 
     /* ========== Category Theme Colors ========== */
 
-    /* K-POP Theme - Vibrant pink to purple gradient
-       Usage: bg-kpop-500, text-kpop-700, etc. */
-    --kpop-50: 330 100% 98%;
-    --kpop-100: 330 90% 96%;
-    --kpop-200: 330 85% 92%;
-    --kpop-300: 330 80% 82%;
-    --kpop-500: 330 85% 55%;
-    --kpop-600: 330 75% 45%;
-    --kpop-700: 330 70% 35%;
-    --kpop-900: 330 65% 20%;
+    /* K-POP Theme - MAXIMUM SATURATION HOT PINK */
+    --kpop-50: 330 100% 95%;
+    --kpop-100: 330 100% 90%;
+    --kpop-200: 330 100% 80%;
+    --kpop-300: 330 100% 70%;
+    --kpop-500: 330 100% 50%;        /* Pure hot pink */
+    --kpop-600: 330 100% 40%;
+    --kpop-700: 330 100% 30%;
+    --kpop-900: 330 100% 15%;
 
-    /* MCU Theme - Electric blue with cosmic accents
-       Usage: bg-mcu-500, text-mcu-700, etc. */
-    --mcu-50: 220 100% 98%;
-    --mcu-100: 220 95% 95%;
-    --mcu-200: 220 90% 90%;
-    --mcu-300: 220 85% 80%;
-    --mcu-500: 220 90% 56%;
-    --mcu-600: 220 85% 48%;
-    --mcu-700: 220 80% 38%;
-    --mcu-900: 220 75% 22%;
+    /* MCU Theme - ELECTRIC CYAN BLUE */
+    --mcu-50: 187 100% 95%;
+    --mcu-100: 187 100% 90%;
+    --mcu-200: 187 100% 80%;
+    --mcu-300: 187 100% 70%;
+    --mcu-500: 187 100% 50%;         /* Pure electric blue */
+    --mcu-600: 187 100% 40%;
+    --mcu-700: 187 100% 30%;
+    --mcu-900: 187 100% 15%;
 
     /* ========== Layout & Spacing - Medium/Brunch Style ========== */
 
@@ -190,16 +198,16 @@
   }
 
   body {
-    @apply bg-background text-foreground antialiased;
-    font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
-    font-weight: 400;
+    @apply bg-background text-foreground;
+    font-family: "Space Grotesk", "Pretendard Variable", Pretendard, sans-serif;
+    font-weight: 500;
     font-size: 16px;
-    line-height: 1.75;
-    letter-spacing: -0.003em;
-    /* Enable font smoothing for better readability */
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    text-rendering: optimizeLegibility;
+    line-height: 1.6;
+    letter-spacing: -0.01em;
+    /* Sharp rendering for bold aesthetic */
+    -webkit-font-smoothing: auto;
+    -moz-osx-font-smoothing: auto;
+    text-rendering: geometricPrecision;
   }
 
   /* Enhanced focus states for accessibility */
@@ -453,94 +461,166 @@
     box-shadow: var(--shadow-xl);
   }
 
-  /* ========== Web Magazine Utilities - Medium/Brunch Style ========== */
+  /* ========== NEO-BRUTALIST CYBER-POP UTILITIES ========== */
 
-  /* Pull quote styling - Clean and minimal */
-  .pull-quote {
-    font-size: 1.5rem;
-    line-height: 1.6;
-    font-weight: 500;
-    color: hsl(var(--foreground));
-    border-left: 3px solid hsl(var(--foreground));
-    padding-left: 1.5rem;
-    margin: 2.5rem 0;
-    font-style: normal;
+  /* GLITCH TEXT EFFECT */
+  .glitch {
+    position: relative;
+    font-weight: 700;
   }
 
-  /* Content container - Optimal reading width */
-  .content-container {
-    max-width: var(--content-max-width);
-    margin-left: auto;
-    margin-right: auto;
+  .glitch::before,
+  .glitch::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
   }
 
-  /* Card hover effect - Smooth lift */
-  .card-hover {
-    transition: var(--transition-smooth);
-    will-change: transform, opacity;
+  .glitch::before {
+    left: 2px;
+    text-shadow: -2px 0 hsl(var(--cyber-pink));
+    clip: rect(44px, 450px, 56px, 0);
+    animation: glitch-anim-1 5s infinite linear alternate-reverse;
   }
 
-  .card-hover:hover {
-    transform: translate3d(0, -4px, 0);
+  .glitch::after {
+    left: -2px;
+    text-shadow: -2px 0 hsl(var(--cyber-blue));
+    clip: rect(44px, 450px, 56px, 0);
+    animation: glitch-anim-2 5s infinite linear alternate-reverse;
   }
 
-  /* Image container - Prevents layout shift */
-  .img-container {
+  @keyframes glitch-anim-1 {
+    0%, 100% { clip: rect(0, 9999px, 0, 0); }
+    10% { clip: rect(23px, 9999px, 85px, 0); }
+    20% { clip: rect(54px, 9999px, 12px, 0); }
+    30% { clip: rect(90px, 9999px, 45px, 0); }
+    40% { clip: rect(12px, 9999px, 98px, 0); }
+    50% { clip: rect(67px, 9999px, 34px, 0); }
+    60% { clip: rect(89px, 9999px, 23px, 0); }
+    70% { clip: rect(34px, 9999px, 67px, 0); }
+    80% { clip: rect(78px, 9999px, 12px, 0); }
+    90% { clip: rect(45px, 9999px, 89px, 0); }
+  }
+
+  @keyframes glitch-anim-2 {
+    0%, 100% { clip: rect(0, 9999px, 0, 0); }
+    10% { clip: rect(67px, 9999px, 23px, 0); }
+    20% { clip: rect(12px, 9999px, 89px, 0); }
+    30% { clip: rect(45px, 9999px, 56px, 0); }
+    40% { clip: rect(89px, 9999px, 12px, 0); }
+    50% { clip: rect(23px, 9999px, 78px, 0); }
+    60% { clip: rect(56px, 9999px, 34px, 0); }
+    70% { clip: rect(78px, 9999px, 45px, 0); }
+    80% { clip: rect(34px, 9999px, 90px, 0); }
+    90% { clip: rect(90px, 9999px, 23px, 0); }
+  }
+
+  /* BOLD BORDER UTILITY */
+  .bold-border {
+    border: 4px solid hsl(var(--foreground));
+  }
+
+  .bold-border-pink {
+    border: 4px solid hsl(var(--cyber-pink));
+  }
+
+  .bold-border-blue {
+    border: 4px solid hsl(var(--cyber-blue));
+  }
+
+  /* DRAMATIC HOVER - Scale and color shift */
+  .hover-pop {
+    transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1),
+                background-color 0.2s ease,
+                border-color 0.2s ease;
+  }
+
+  .hover-pop:hover {
+    transform: scale(1.02) rotate(-1deg);
+  }
+
+  /* IMAGE WITH CYBER OVERLAY */
+  .cyber-img {
     position: relative;
     overflow: hidden;
   }
 
-  .img-container img {
-    transition: var(--transition-smooth);
-    will-change: transform;
+  .cyber-img::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg,
+                hsl(var(--cyber-pink) / 0.3),
+                hsl(var(--cyber-blue) / 0.3));
+    opacity: 0;
+    transition: opacity 0.3s ease;
   }
 
-  .img-container:hover img {
-    transform: scale3d(1.05, 1.05, 1);
+  .cyber-img:hover::after {
+    opacity: 1;
   }
 
-  /* Subtle underline on hover */
-  .hover-underline {
+  /* CHUNKY UNDERLINE */
+  .chunky-underline {
     position: relative;
     display: inline-block;
   }
 
-  .hover-underline::after {
+  .chunky-underline::after {
     content: '';
     position: absolute;
-    bottom: 0;
+    bottom: -4px;
     left: 0;
     width: 100%;
-    height: 1px;
-    background: currentColor;
+    height: 6px;
+    background: hsl(var(--cyber-pink));
     transform: scaleX(0);
     transform-origin: left;
-    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    will-change: transform;
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
   }
 
-  .hover-underline:hover::after {
+  .chunky-underline:hover::after {
     transform: scaleX(1);
   }
 
-  /* Fade in on scroll - Progressive enhancement */
-  @media (prefers-reduced-motion: no-preference) {
-    .fade-in-scroll {
-      opacity: 0;
-      transform: translate3d(0, 20px, 0);
-      transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1),
-                  transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-      will-change: opacity, transform;
-    }
-
-    .fade-in-scroll.is-visible {
-      opacity: 1;
-      transform: translate3d(0, 0, 0);
-    }
+  /* NEON GLOW EFFECT */
+  .neon-glow {
+    text-shadow:
+      0 0 10px hsl(var(--cyber-pink) / 0.8),
+      0 0 20px hsl(var(--cyber-pink) / 0.6),
+      0 0 30px hsl(var(--cyber-pink) / 0.4);
   }
 
-  /* Respect reduced motion preference */
+  .neon-glow-blue {
+    text-shadow:
+      0 0 10px hsl(var(--cyber-blue) / 0.8),
+      0 0 20px hsl(var(--cyber-blue) / 0.6),
+      0 0 30px hsl(var(--cyber-blue) / 0.4);
+  }
+
+  /* SKEW ON HOVER */
+  .hover-skew {
+    transition: transform 0.3s ease;
+  }
+
+  .hover-skew:hover {
+    transform: skewX(-2deg);
+  }
+
+  /* Respect reduced motion */
   @media (prefers-reduced-motion: reduce) {
+    .glitch::before,
+    .glitch::after {
+      animation: none;
+    }
+
     *,
     *::before,
     *::after {

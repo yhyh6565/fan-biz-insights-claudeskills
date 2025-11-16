@@ -1,7 +1,7 @@
 import { useLocation, useNavigate } from "react-router-dom";
 import { cn } from "@/lib/utils";
 import { useState } from "react";
-import { ChevronDown } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import ExpandedMenu from "./ExpandedMenu";
 
 /**
@@ -14,13 +14,13 @@ const NAV_ITEMS = [
 ];
 
 /**
- * Main Navigation Component
+ * NEO-BRUTALIST CYBER-POP NAVIGATION
  *
  * Features:
- * - Glass morphism sticky header
- * - Expandable menu with dropdown
- * - Double-click admin login easter egg
- * - Responsive design with proper ARIA labels
+ * - BOLD black bar with cyber pink accents
+ * - Sharp edges (zero border radius)
+ * - Glitch effect on logo
+ * - Dramatic hover states
  *
  * @component
  */
@@ -57,34 +57,31 @@ const Navigation = () => {
 
   return (
     <>
-      <header className="sticky top-0 z-50 w-full glass border-b border-border/40 animate-fade-in">
-        <nav className="container mx-auto px-4 md:px-6 py-5" role="navigation" aria-label="Main navigation">
-          <div className="flex items-center justify-between max-w-6xl mx-auto">
-            {/* Logo / Title */}
+      <header className="sticky top-0 z-50 w-full bg-foreground border-b-4 border-primary">
+        <nav className="container mx-auto px-4 py-4" role="navigation" aria-label="Main navigation">
+          <div className="flex items-center justify-between max-w-7xl mx-auto">
+            {/* Logo with GLITCH effect */}
             <button
               onClick={handleTitleClick}
-              className="text-xl md:text-2xl font-bold hover:opacity-80 transition-opacity duration-200 cursor-pointer"
+              className="relative text-2xl md:text-3xl font-display font-bold tracking-tight text-background hover:text-primary transition-colors duration-200 cursor-pointer uppercase"
               aria-label="Home - 덕질로 배운 비즈니스"
+              data-text="덕질로 배운 비즈니스"
             >
-              덕질로 배운 비즈니스
+              <span className="relative z-10">덕질로 배운 비즈니스</span>
             </button>
 
-            {/* Menu Toggle */}
+            {/* Menu Toggle - BOLD ICON */}
             <button
               onClick={toggleMenu}
-              className="flex items-center gap-2 px-3 py-2 hover:bg-accent rounded-md transition-all duration-200 group"
+              className="p-3 bg-primary text-primary-foreground hover:bg-background hover:text-primary border-2 border-primary transition-all duration-200 hover-pop"
               aria-label={isExpanded ? "메뉴 닫기" : "메뉴 열기"}
               aria-expanded={isExpanded}
             >
-              <span className="text-sm font-medium text-foreground/70 group-hover:text-foreground">
-                메뉴
-              </span>
-              <ChevronDown
-                className={cn(
-                  "h-4 w-4 text-foreground/70 transition-all duration-200 group-hover:text-foreground",
-                  isExpanded && "rotate-180"
-                )}
-              />
+              {isExpanded ? (
+                <X className="h-6 w-6 font-bold" strokeWidth={3} />
+              ) : (
+                <Menu className="h-6 w-6 font-bold" strokeWidth={3} />
+              )}
             </button>
           </div>
         </nav>

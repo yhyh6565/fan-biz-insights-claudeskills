@@ -29,23 +29,25 @@ export default {
     extend: {
       /* ========== Typography ========== */
       fontFamily: {
-        // Default body font - Pretendard Variable for optimal Korean readability
+        // Body font - Space Grotesk for bold, modern feel
         sans: [
+          "Space Grotesk",
           "Pretendard Variable",
           "Pretendard",
-          "-apple-system",
-          "BlinkMacSystemFont",
-          "system-ui",
           "sans-serif",
         ],
-        // Display font for headings - same as body for consistency
+        // Display font - Bebas Neue for MAXIMUM IMPACT
         display: [
-          "Pretendard Variable",
-          "Pretendard",
-          "-apple-system",
-          "BlinkMacSystemFont",
-          "system-ui",
+          "Bebas Neue",
+          "Impact",
+          "Arial Black",
           "sans-serif",
+        ],
+        // Mono font - IBM Plex Mono for tech/digital accents
+        mono: [
+          "IBM Plex Mono",
+          "Courier New",
+          "monospace",
         ],
       },
 
@@ -115,11 +117,12 @@ export default {
         },
       },
 
-      /* ========== Border Radius ========== */
+      /* ========== Border Radius - BRUTALIST SHARP EDGES ========== */
       borderRadius: {
-        lg: "var(--radius)",          // 0.75rem
-        md: "calc(var(--radius) - 2px)", // ~0.625rem
-        sm: "calc(var(--radius) - 4px)", // ~0.5rem
+        lg: "0",           // No curves
+        md: "0",           // Sharp corners
+        sm: "0",           // Maximum brutalism
+        none: "0",
       },
 
       /* ========== Animations ========== */

@@ -60,31 +60,31 @@ const Home = () => {
           />
         </div>
 
-        {/* Article List - Clean Magazine Style */}
+        {/* Article List - CYBER-POP STYLE */}
         <section
           id="article-list"
-          className="container mx-auto px-4 md:px-6 py-16 md:py-20 animate-fade-in animate-delay-300"
+          className="container mx-auto px-4 md:px-6 py-12 md:py-16 animate-fade-in animate-delay-300"
         >
-          <div className="max-w-6xl mx-auto">
-            {/* Section Header - Clean and minimal */}
+          <div className="max-w-7xl mx-auto">
+            {/* Section Header - BOLD BRUTALIST */}
             <div className="mb-12 md:mb-16">
-              <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 pb-6 border-b border-border/40">
+              <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 pb-6 border-b-4 border-foreground">
                 <div>
-                  <p className="text-xs uppercase tracking-wider text-muted-foreground font-semibold mb-3">
-                    Latest Articles
+                  <p className="text-xs font-mono font-bold tracking-widest uppercase text-muted-foreground mb-3">
+                    // ALL_ARTICLES
                   </p>
-                  <h2 className="text-3xl md:text-4xl font-bold leading-tight">
+                  <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold leading-none uppercase">
                     {selectedKeyword ? (
                       <>
-                        <span className="gradient-text-kpop">{selectedKeyword}</span> 관련 글
+                        <span className="neon-glow">{selectedKeyword}</span>
                       </>
                     ) : (
                       "모든 글"
                     )}
                   </h2>
                 </div>
-                <div className="text-sm text-muted-foreground font-medium">
-                  {filteredArticles.length}개의 글
+                <div className="text-sm font-mono font-bold bg-foreground text-background px-4 py-2">
+                  {filteredArticles.length} POSTS
                 </div>
               </div>
             </div>
@@ -126,27 +126,40 @@ const Home = () => {
         </section>
       </main>
 
-      {/* Clean footer */}
-      <footer className="border-t border-border/40 py-16 mt-24">
+      {/* CYBER-POP FOOTER */}
+      <footer className="bg-foreground text-background border-t-4 border-primary py-12 mt-24">
         <div className="container mx-auto px-4 md:px-6">
-          <div className="max-w-6xl mx-auto">
-            <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-8 mb-8">
+          <div className="max-w-7xl mx-auto">
+            <div className="grid md:grid-cols-2 gap-8 mb-8">
               <div>
-                <h3 className="text-2xl md:text-3xl font-bold mb-2">
+                <h3 className="text-3xl md:text-4xl font-display font-bold mb-4 uppercase">
                   덕질로 배운 비즈니스
                 </h3>
-                <p className="text-base text-muted-foreground">
+                <p className="text-lg text-background/80 font-medium">
                   팬덤과 비즈니스의 교차점에서 발견한 인사이트
                 </p>
               </div>
-              <div className="text-sm text-muted-foreground">
-                © 2025 Fan Biz Insights
+              <div className="flex flex-col items-start md:items-end justify-center">
+                <div className="text-xs font-mono font-bold mb-2">
+                  © 2025 FAN_BIZ_INSIGHTS
+                </div>
+                <div className="text-xs font-mono bg-primary text-primary-foreground px-3 py-1.5">
+                  DESIGNED_WITH_CLAUDE_CODE
+                </div>
               </div>
             </div>
-            <div className="pt-6 border-t border-border/30">
-              <p className="text-xs text-muted-foreground/60 text-center">
-                Designed with Claude Code
-              </p>
+            <div className="pt-6 border-t-2 border-primary/30">
+              <div className="flex gap-4 flex-wrap">
+                <span className="text-xs font-mono font-bold px-3 py-1 border-2 border-primary bg-primary/20">
+                  NEO_BRUTALISM
+                </span>
+                <span className="text-xs font-mono font-bold px-3 py-1 border-2 border-primary bg-primary/20">
+                  CYBER_POP
+                </span>
+                <span className="text-xs font-mono font-bold px-3 py-1 border-2 border-primary bg-primary/20">
+                  MAX_SATURATION
+                </span>
+              </div>
             </div>
           </div>
         </div>
