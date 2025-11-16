@@ -53,7 +53,7 @@ const ArticleListCard = ({
           <div className="grid md:grid-cols-12 gap-0">
             {/* Image Column - 5 columns */}
             <div className="md:col-span-5 order-1 relative">
-              <div className="aspect-[4/3] md:aspect-[4/5] overflow-hidden relative cyber-img">
+              <div className="aspect-[4/3] overflow-hidden relative cyber-img">
                 <img
                   src={thumbnail}
                   alt={title}

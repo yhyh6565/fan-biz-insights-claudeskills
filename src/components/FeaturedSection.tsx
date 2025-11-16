@@ -75,7 +75,7 @@ const FeaturedSection = ({ articles }: FeaturedSectionProps) => {
                     <Card className="border-4 border-foreground shadow-none overflow-hidden hover-pop group bg-card relative">
                       <CardContent className="p-0">
                         {/* Image with CYBER overlay */}
-                        <div className="relative aspect-[21/9] overflow-hidden bg-muted cyber-img">
+                        <div className="relative aspect-[3/1] overflow-hidden bg-muted cyber-img">
                           <img
                             src={article.thumbnail || "/placeholder.svg"}
                             alt={article.title}
