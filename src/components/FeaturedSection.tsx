@@ -91,11 +91,11 @@ const FeaturedSection = ({ articles }: FeaturedSectionProps) => {
                           />
 
                           {/* Content overlay */}
-                          <div className="absolute bottom-0 left-0 right-0 p-6 md:p-10 bg-foreground/90">
+                          <div className="absolute bottom-0 left-0 right-0 p-4 md:p-6 bg-foreground/90">
                             {/* Category badge - NEON */}
                             <Badge
                               className={cn(
-                                "border-4 text-sm font-bold tracking-wider uppercase px-4 py-1.5 mb-4 hover-skew",
+                                "border-4 text-sm font-bold tracking-wider uppercase px-4 py-1.5 mb-2 hover-skew",
                                 article.category === "K-POP"
                                   ? "bg-kpop-500 text-white border-kpop-700 neon-glow"
                                   : "bg-mcu-500 text-white border-mcu-700 neon-glow-blue"
@@ -105,17 +105,17 @@ const FeaturedSection = ({ articles }: FeaturedSectionProps) => {
                             </Badge>
 
                             {/* Title - MASSIVE and BOLD */}
-                            <h3 className="text-3xl md:text-5xl lg:text-6xl font-display font-bold mb-4 leading-none text-background uppercase tracking-tight">
+                            <h3 className="text-2xl md:text-3xl lg:text-4xl font-display font-bold mb-2 leading-tight text-background uppercase tracking-tight">
                               {article.title}
                             </h3>
 
                             {/* Summary */}
-                            <p className="text-base md:text-lg mb-4 text-background/90 leading-relaxed max-w-3xl">
+                            <p className="text-sm md:text-base mb-2 text-background/90 leading-relaxed max-w-3xl">
                               {article.summary}
                             </p>
 
                             {/* Meta info - MONOSPACE */}
-                            <div className="flex items-center gap-6 text-sm text-background/80 font-mono font-bold">
+                            <div className="flex items-center gap-6 text-xs text-background/80 font-mono font-bold">
                               <span className="flex items-center gap-2">
                                 <Eye className="h-4 w-4" strokeWidth={3} />
                                 {article.views.toLocaleString()}
